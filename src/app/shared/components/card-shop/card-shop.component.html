@@ -1,1 +1,16 @@
-<p>card-shop works!</p>
+<div class="col">
+    <div class="card shadow-sm">
+        <img ngSrc="../assets/images/image1.jpg"  class="img-thumbnail" w-100 border-0>
+
+      <div class="card-body">
+        <p class="card-text">{{product?.title}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-success"><span class="fas fa-shopping-basket"></span></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">افزودن به سبد</button>
+          </div>
+          <small class="text-muted">{{product?.price | number }}</small>
+        </div>
+      </div>
+    </div>
+  </div>

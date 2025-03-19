@@ -4,8 +4,10 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-  path:'',
-  component : AppComponent
+    path  : 'shop',
+    title : 'فروشگاه',
+loadChildren :()=> import ('./shop/shop.module').then(x=>x.ShopModule)
+
   }
 ];
 

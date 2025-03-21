@@ -8,7 +8,25 @@ body
     line-height: 1.5 ;
     direction: rtl;
 }
-@import '@angular/material/prebuilt-themes/rose-red.css';
+.mat-sidenav
+{
+    width: 260px;
+    padding: 2px;
+    margin-left: 20px;
+}
+.mat-content
+{
+    min-height: 400px;
+    padding: 0px 15px;
+    overflow: hidden;
+    margin:  0 ;
+
+@media (min-width: 960px)
+{
+    padding-right: 265px ; ;
+}
+}
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 html,
 body
 {

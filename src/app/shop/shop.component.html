@@ -1,24 +1,45 @@
 <mat-sidenav-container>
   <mat-sidenav [opened]="sidenavOpen" [mode]="sidenavOpen? 'side' : 'over'" class="mat-sidenav">
+    <div class="w-100 px-1" mb-2>
+      <section class="sticky-top">
+        
     <div class="list-group mt-3 shadow">
       <label class="list-group-item d-flex gap-3 active text-start">
-        <span class="pt-1 form-checked-content">
-          <strong >برند</strong>
+        <span class="form-checked-content">
+          <strong >نوع</strong>
         </span>
       </label>
-      <ng-container *ngFor="let brand of brands">
-        <label class="list-group-item d-flex gap-3">
-          <input class="form-check-input flex-shrink-0" type= "checkbox" [value]="brand.id" />
-          <span class="pt-1 form-checked-content">
-            <strong>{{brand.title}}</strong>
-          </span>
-        </label>
-      </ng-container>
+      <select class="form-select rounded-bottom rounded-0">
+        <option *ngFor="let item of types">
+          {{item?.title}}
+        </option>
+      </select>
     </div>
+    </section>
+  </div>
+  <div class="w-100 px-1">
+    <section class="sticky-top">
+      
+  <div class="list-group shadow">
+    <label class="list-group-item d-flex gap-3 active text-start">
+      <span class="form-checked-content">
+        <strong >برند</strong>
+      </span>
+    </label>
+    <select class="form-select rounded-bottom rounded-0">
+      <option *ngFor="let item of brands">
+        {{item?.title}}
+      </option>
+    </select>
+  </div>
+  </section>
+</div>
   </mat-sidenav>
-  <mat-sidenav-container class="mat-sidenav-content">
-<div class="row row-cols-1 row-cols-sm-3 row-cols-md-5 g-3">
-  <app-card-shop *ngFor="let item of data?.result" [product]="item"></app-card-shop>
+  <mat-sidenav-container class="mat-content">
+<div class="row w-100">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2" *ngFor="let item of data?.result">
+  <app-card-shop [product]="item"></app-card-shop>
+</div>
 </div>
 </mat-sidenav-container>
 </mat-sidenav-container>

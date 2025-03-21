@@ -8,3 +8,16 @@ body
     line-height: 1.5 ;
     direction: rtl;
 }
+@import '@angular/material/prebuilt-themes/rose-red.css';
+html,
+body
+{
+    height: 100%;
+}
+body
+{
+    margin : 0 ;
+font-family: Roboto , 'Helvetica Neue' , sans-serif ;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

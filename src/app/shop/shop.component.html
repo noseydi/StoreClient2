@@ -1,39 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav [opened]="sidenavOpen" [mode]="sidenavOpen? 'side' : 'over'" class="mat-sidenav">
-    <div class="w-100 px-1  mb-2 ">
-      <section class="sticky-top">
-        
-    <div class="list-group mt-3 shadow">
-      <label class="list-group-item d-flex gap-3 active text-start">
-        <span class="form-checked-content">
-          <strong >نوع</strong>
-        </span>
-      </label>
-      <select class="form-select rounded-bottom rounded-0">
-        <option *ngFor="let item of types">
-          {{item?.title}}
-        </option>
-      </select>
-    </div>
-    </section>
-  </div>
-  <div class="w-100 px-1">
-    <section class="sticky-top">
-      
-  <div class="list-group shadow">
-    <label class="list-group-item d-flex gap-3 active text-start">
-      <span class="form-checked-content">
-        <strong >برند</strong>
-      </span>
-    </label>
-    <select class="form-select rounded-bottom rounded-0">
-      <option *ngFor="let item of brands">
-        {{item?.title}}
-      </option>
-    </select>
-  </div>
-  </section>
-</div>
+ <app-shop-filters (updateParams)="updateParams($event.returnValue)"></app-shop-filters>
   </mat-sidenav>
   <mat-sidenav-container class="mat-content">
 <div class="row w-100">

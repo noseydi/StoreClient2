@@ -30,7 +30,7 @@ this.shopParams = params;
   getProducts() : Observable<IPagination<IProduct>>
   {
     let params = this.generateShopParams();
- return this.http.get<IPagination<IProduct>>(environment.backendurl+'/products' );
+ return this.http.get<IPagination<IProduct>>(environment.backendurl+'/products');
   }
   private generateShopParams() {
     let params = new HttpParams();

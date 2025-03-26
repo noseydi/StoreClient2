@@ -3,6 +3,7 @@ import { IBrand } from '../../shared/models/brand';
 import { IType } from '../../shared/models/type';
 import { ShopService } from '../shop.service';
 import { shopParams } from '../../shared/models/shopParams';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-shop-filters',
@@ -12,13 +13,23 @@ import { shopParams } from '../../shared/models/shopParams';
 })
 export class ShopFiltersComponent {
   @Output() updateparams = new EventEmitter<boolean>
- public brands : IBrand[];
+  public brands : IBrand[];
   public types : IType[];
-  private shopParams : shopParams ;
+  sortOptions = [
+    {key:1, title:'عنوان'},
+{key : 2 , title : 'نوع محصول'},
+{key:3 , title:'قیمت'}
+  ];
+  sortTypeOptions = [
+    {key : 1 , title : 'زیاد به کم'},
+    {key : 2 , title : 'کم به زیاد'}
+  ]
+  public shopParams : shopParams ;
   constructor (private shopservice: ShopService)
   {}
    onChangeTypes(typeId : number)
   {
+    
     this.shopParams.typeId = typeId;
     this.shopservice.updateShopParams(this.shopParams);
     this.updateparams.emit(true);
@@ -29,6 +40,14 @@ export class ShopFiltersComponent {
     this.shopservice.updateShopParams(this.shopParams);
     this.updateparams.emit(true);
   }
+
+  onChangeSortType( brandId : number)
+  {
+    this.shopParams.brandId = brandId;
+    this.shopservice.updateShopParams(this.shopParams);
+    this.updateparams.emit(true);
+  }
+
   private getTypes() {
     this.shopservice.getTypes().subscribe((res) => {
 this.types = res ; 

@@ -5,6 +5,7 @@ typeId? : number = 0 ;
 typeSort :  1 | 2 = 1 ; 
 search : string = '';
 sort  : number = 0 ;
-pageSize  : number = 10 ;
-pageIndex : number = 1 ;
+pageSize  : number = 5 ;
+pageIndex : number = 2 ;
+count : number= 30 ;
 }

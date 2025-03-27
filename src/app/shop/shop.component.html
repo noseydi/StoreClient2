@@ -3,6 +3,13 @@
  <app-shop-filters (updateParams)="updateParams($event.returnValue)"></app-shop-filters>
   </mat-sidenav>
   <mat-sidenav-container class="mat-content">
+    <div class="row w-50 mb-3">
+      <form class="d-flex">
+        <input class="form-control me-2" #search (keyup)="onSearch()" type="search" placeholder="جستجو کنید"/>
+        <button class="btn btn-outline-success" type="submit" (click)="onSearch()">حذف</button>
+        <button class="btn btn-outline-danger" type="submit" (click)="onReset()">حذف</button>
+      </form>
+    </div>
 <div class="row w-100">
   <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2" *ngFor="let item of data?.result">
   <app-card-shop [product]="item"></app-card-shop>
@@ -12,7 +19,12 @@
 <div class = "row" *ngIf="data?.result?.length>0">
   <div class="col-xl-12 col-12">
     <pagination (pageChanged)="onpagechanged($event)"
-     [totalItems]="shopParams.count" [itemsPerPage]="shopParams.pageSize" [(ngModel)]="shopParams.pageIndex"></pagination>
+     [totalItems]="shopParams.count" [itemsPerPage]="shopParams.pageSize" [(ngModel)]="shopParams.pageIndex"
+     previousText="&lsaquo;"
+     nextText="&rsaquo;"
+     firstText="&laquo;"
+     lastText="&raquo;"
+     ></pagination>
   </div>
 </div>
 </mat-sidenav-container>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardShopComponent } from './components/card-shop/card-shop.component';
 import {MatSidenavModule} from '@angular/material/sidenav' ;
 import {PaginationModule} from 'ngx-bootstrap/pagination'
+import { RouterModule } from '@angular/router';
 @NgModule (
     {
         declarations:[
@@ -10,7 +11,7 @@ import {PaginationModule} from 'ngx-bootstrap/pagination'
     CardShopComponent
   ],
         imports:[
-            CommonModule,MatSidenavModule , PaginationModule
+            CommonModule,MatSidenavModule , PaginationModule,RouterModule
         ],
         exports : [
             CardShopComponent, MatSidenavModule , PaginationModule

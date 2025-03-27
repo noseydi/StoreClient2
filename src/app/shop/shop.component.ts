@@ -1,8 +1,8 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, viewChild } from '@angular/core';
 import { ShopService } from './shop.service';
 import { Subscription } from 'rxjs';
 import { IProduct } from '../shared/models/product';
-import { IPagination } from '../shared/models/ipagination';
+import { IPagination } from '../shared/models/pagination';
 import { IBrand } from '../shared/models/brand';
 import { IType } from '../shared/models/type';
 import { shopParams } from '../shared/models/shopParams';
@@ -18,6 +18,7 @@ export class  ShopComponent implements OnInit , OnDestroy {
   shopParams : shopParams;
   private sub$ = new Subscription();
   public sidenavOpen : boolean = true  ;
+  @ViewChild('search' , {static : false}) searchTerm : ElementRef
   constructor(private shopservice : ShopService ) {}
 updateParams(updated : boolean)
 {
@@ -39,6 +40,19 @@ this.sub$.unsubscribe();
     this.getProducts();
     this.shopParams = this.shopservice.getShopParams();
 
+  }
+  onSearch ()
+  {
+    this.shopParams.search = this.searchTerm?.nativeElement?.value ;
+    this.shopservice.updateShopParams(this.shopParams);
+    this.getProducts();
+  }
+  onReset()
+  {
+    this.shopParams = new shopParams();
+    this.shopservice.updateShopParams(this.shopParams);
+    this.searchTerm.nativeElement.value = '' ; 
+    this.getProducts();
   }
   onpagechanged(data : any )
   {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { IPagination } from '../shared/models/ipagination';
+import { IPagination } from '../shared/models/pagination';
 import { IProduct } from '../shared/models/product';
 import {  Observable } from 'rxjs';
 import { IType } from '../shared/models/type';
@@ -27,10 +27,15 @@ private shopParams = new shopParams()
 this.shopParams = params;
  
   }
+ 
   getProducts() : Observable<IPagination<IProduct>>
   {
     let params = this.generateShopParams();
- return this.http.get<IPagination<IProduct>>(environment.backendurl+'/products');
+ return this.http.get<IPagination<IProduct>>(this.backendurl+'/products');
+  }
+  getProduct(id : number)
+  {
+    return this.http.get<IProduct>('${this.backendurl}'+'/products/${id}');
   }
   private generateShopParams() {
     let params = new HttpParams();

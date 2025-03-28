@@ -7,11 +7,13 @@ import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 const routes: Routes = [
   {
     path:'',
+    pathMatch : 'full' ,
     component : ShopComponent
   },
   {
     path : ':id', 
-    component : ShopDetailComponent
+    component : ShopDetailComponent,
+    pathMatch : 'full',
 
   }
 ];

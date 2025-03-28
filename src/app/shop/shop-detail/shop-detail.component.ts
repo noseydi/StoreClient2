@@ -14,7 +14,7 @@ export class ShopDetailComponent implements OnInit {
   }
   ngOnInit(): void {
     this.shopService.getProduct(this.id).subscribe((res) => {
-console.log(this.route);
+console.log(res);
   });
   }
 }

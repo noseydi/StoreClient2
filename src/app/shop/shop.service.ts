@@ -35,7 +35,7 @@ this.shopParams = params;
   }
   getProduct(id : number)
   {
-    return this.http.get<IProduct>('${this.backendurl}'+'/products/${id}');
+    return this.http.get<IProduct>(this.backendurl+'/product/'+id);
   }
   private generateShopParams() {
     let params = new HttpParams();

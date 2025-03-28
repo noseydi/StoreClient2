@@ -12,7 +12,9 @@ const routes: Routes = [
   {
     path  : 'shop',
     title : 'فروشگاه',
-loadChildren :()=> import ('./shop/shop.module').then(x=>x.ShopModule)
+loadChildren :()=> import ('./shop/shop.module').then(x=>x.ShopModule),
+data:{breadcrumb : 'محصولات'}
+
   },
   {
     path : 'NotFound' ,

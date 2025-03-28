@@ -5,6 +5,7 @@ import {MatSidenavModule} from '@angular/material/sidenav' ;
 import {PaginationModule} from 'ngx-bootstrap/pagination'
 import { RouterModule } from '@angular/router';
 import {ToastrModule} from 'ngx-toastr';
+
 @NgModule (
     {
         declarations:[
@@ -12,7 +13,9 @@ import {ToastrModule} from 'ngx-toastr';
     CardShopComponent
   ],
         imports:[
-            CommonModule,MatSidenavModule , PaginationModule,RouterModule  , ToastrModule.forRoot(
+            CommonModule,MatSidenavModule , 
+            PaginationModule,RouterModule  ,
+             ToastrModule.forRoot(
                 {
                     positionClass : 'toastr-bottom-right' , 
                     preventDuplicates : true ,
@@ -24,6 +27,7 @@ import {ToastrModule} from 'ngx-toastr';
             ],
         exports : [
             CardShopComponent, MatSidenavModule , PaginationModule 
+            
         ]
 
     }
